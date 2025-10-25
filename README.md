@@ -62,7 +62,7 @@ Time: up to O(n²), Space: O(n).
 
 ---
 ## Task 2 — Rod Cutting (Dynamic Programming)
-Functions
+## Functions
 rod_cutting_memo(length: int, prices: List[int]) -> Dict
 rod_cutting_table(length: int, prices: List[int]) -> Dict
 # Both return:
@@ -225,6 +225,7 @@ Attach the ZIP and the repository link in LMS.
 ✅ Handles scenarios: same priority, mixed priorities, exceeding constraints.
 
 ✅ Uses @dataclass for data structures in Task 1.
+
 
 
 
