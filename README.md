@@ -16,3 +16,19 @@ Both tasks follow the acceptance criteria from the assignment.
 ```python
 optimize_printing(print_jobs: List[Dict], constraints: Dict) -> Dict
 # Returns: {"print_order": ["M1", "M2", ...], "total_time": int}
+
+## Inputs
+
+print_jobs = [
+  {"id": str, "volume": float, "priority": int, "print_time": int}, ...
+]
+constraints = {
+  "max_volume": float,
+  "max_items": int
+}
+
+
+## Priorities
+- ** 1 = highest (Coursework/Theses)1 = highest (Coursework/Theses) 
+- ** 2 = Lab Work
+- ** 3 = Personal Projects
