@@ -36,6 +36,10 @@ constraints = {
 
 3 = Personal Projects
 
+
+
+
+
 ## Greedy batching strategy
 
 Repeatedly start a new batch with the next unscheduled highest-priority job (ties by id for determinism).
@@ -153,3 +157,4 @@ Attach the ZIP and the repository link in LMS.
 
 
 ```
+
