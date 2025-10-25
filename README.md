@@ -1,6 +1,7 @@
 # GOIT ALGO2 HW-02 — Greedy Algorithms & Dynamic Programming
 
 ## Overview
+
 This repository contains two independent tasks:
 
 - **Task 1 (Greedy):** Optimize a 3D printer queue subject to priorities and printer constraints.
@@ -34,6 +35,7 @@ constraints = {
  1 = highest (Coursework/Theses)1 = highest (Coursework/Theses) 
  2 = Lab Work
  3 = Personal Projects
+
 
 
 
