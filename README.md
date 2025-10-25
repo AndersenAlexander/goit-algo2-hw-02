@@ -12,20 +12,6 @@ Both tasks follow the acceptance criteria from the assignment.
 
 ## Task 1 — 3D Printer Queue (Greedy)
 
-## Function
-```python
-optimize_printing(print_jobs: List[Dict], constraints: Dict) -> Dict
-# Returns: {"print_order": ["M1", "M2", ...], "total_time": int}
-
-
-
-
-
-
-
-
-
-
 
 ##  Inputs
 print_jobs = [
@@ -235,6 +221,7 @@ Acceptance Criteria Checklist
 ✅ Handles scenarios: same priority, mixed priorities, exceeding constraints.
 
 ✅ Uses @dataclass for data structures in Task 1.
+
 
 
 
