@@ -1,26 +1,24 @@
 # GOIT ALGO2 HW-02 — Greedy Algorithms & Dynamic Programming
 
 ## Overview
-
 This repository contains two independent tasks:
 
 - **Task 1 (Greedy):** Optimize a 3D printer queue subject to priorities and printer constraints.
 - **Task 2 (Dynamic Programming):** Solve the Rod Cutting problem using **memoization** (top-down) and **tabulation** (bottom-up).
 
-Both tasks match the acceptance criteria from the assignment.
+Both tasks follow the acceptance criteria from the assignment.
 
 ---
 
 ## Task 1 — 3D Printer Queue (Greedy)
 
-## Function
-
+### Function
 ```python
 optimize_printing(print_jobs: List[Dict], constraints: Dict) -> Dict
 # Returns: {"print_order": ["M1", "M2", ...], "total_time": int}
-
-
-## Inputs
+Inputs
+python
+Copiază codul
 print_jobs = [
   {"id": str, "volume": float, "priority": int, "print_time": int}, ...
 ]
@@ -28,27 +26,21 @@ constraints = {
   "max_volume": float,
   "max_items": int
 }
-
-## Priorities
+Priorities
 1 = highest (Coursework/Theses)
 
 2 = Lab Work
 
 3 = Personal Projects
 
-
-
-
-
-## Greedy batching strategy
-
+Greedy Batching Strategy
 Repeatedly start a new batch with the next unscheduled highest-priority job (ties by id for determinism).
 
-Try to fill the batch with other jobs that fit (max_volume, max_items), preferring:
+Try to fill the batch with additional jobs that fit the constraints (max_volume, max_items), preferring:
 
-jobs that do not increase the batch time (where batch time is max(print_time) in the batch),
+jobs that do not increase the batch time (batch time = max(print_time) in the batch),
 
-then the smallest time increase,
+then the smallest increase of batch time,
 
 then higher priority (lower number),
 
@@ -56,30 +48,31 @@ then smaller print_time,
 
 then lexicographically smaller id.
 
-Batch time = max(print_time) within that batch.
-Total time = sum of all batch times.
+Batch time = max(print_time) in that batch. Total time = sum of batch times across all batches.
 
-print_order lists jobs in their final scheduled order (across batches).
+The returned print_order lists jobs in their final scheduled order (across batches).
 
-## Data classes used: PrintJob, PrinterConstraints
-## Complexity: up to O(n²) time, O(n) extra space.
+Data Classes Used
+PrintJob, PrinterConstraints (via @dataclass).
 
+Complexity
+Time: up to O(n²)
 
+Extra space: O(n)
 
-## Task 2 — Rod Cutting (Dynamic Programming)
-
+Task 2 — Rod Cutting (Dynamic Programming)
 Functions
+python
+Copiază codul
 rod_cutting_memo(length: int, prices: List[int]) -> Dict
 rod_cutting_table(length: int, prices: List[int]) -> Dict
 # Both return:
 # {
 #   "max_profit": int,
-#   "cuts": List[int],        # e.g., [2,2,1] means pieces of lengths 2,2,1
+#   "cuts": List[int],        # e.g., [2, 2, 1] means pieces 2, 2, 1
 #   "number_of_cuts": int     # len(cuts) - 1
 # }
-
-## Input rules
-
+Input Rules
 length > 0
 
 len(prices) == length
@@ -88,33 +81,68 @@ All prices[i] > 0
 
 prices[i] is the price of a rod of length i+1.
 
-Tie-breaking
+Tie-Breaking
+Memoization (top-down): tries piece sizes 1..L and keeps the first optimal encountered → often [1, 2, 2] for length 5.
 
-Memoization (top-down): tries piece sizes 1..L and keeps the first optimal it encounters
-→ tends to produce results like [1, 2, 2] for length 5.
+Tabulation (bottom-up): if profit ties, prefer more pieces, then larger first cut for determinism → often [2, 2, 1] for length 5.
 
-Tabulation (bottom-up): if profit ties, prefer more pieces, then larger first cut for determinism
-→ tends to produce [2, 2, 1] for length 5.
-
-Complexity:
-
+Complexity
 Memoization: O(n²) time, O(n) space
 
 Tabulation: O(n²) time, O(n) space
 
-## Project Structure
-
+Project Structure
+bash
+Copiază codul
 goit-algo2-hw-02/
 ├─ src/
 │  └─ algorithms_hw2.py         # Task 1 + Task 2 implementations
 ├─ tests/
 │  └─ test_hw2.py               # Pytest tests (optional but recommended)
-├─ main.py                      # Demo runner that prints expected outputs
+├─ main.py                      # Demo runner printing expected outputs
 ├─ pytest.ini                   # Ensures imports work from src/
 └─ README.md
+Setup & Run
+1) Create and activate a virtual environment (recommended)
+Windows (PowerShell)
 
-## Example Output (matches expected)
+powershell
+Copiază codul
+py -3.12 -m venv .venv
+. .\.venv\Scripts\Activate.ps1
+macOS / Linux
 
+bash
+Copiază codul
+python3 -m venv .venv
+source .venv/bin/activate
+2) Run the demo
+bash
+Copiază codul
+python main.py
+You should see the same outputs as in the assignment’s Expected Result section.
+
+3) Run automated tests (pytest)
+Install pytest (once):
+
+bash
+Copiază codul
+python -m pip install -U pip pytest
+Run tests:
+
+bash
+Copiază codul
+pytest -q
+If you get ModuleNotFoundError: src, run once:
+
+bash
+Copiază codul
+# Windows PowerShell
+$env:PYTHONPATH = "$PWD"
+python -m pytest -q
+Example Output (Expected)
+yaml
+Copiază codul
 Test 1 (same priority):
 Print order: ['M1', 'M2', 'M3']
 Total time: 270 minutes
@@ -128,12 +156,53 @@ Print order: ['M1', 'M2', 'M3']
 Total time: 450 minutes
 
 Test: Base case
-...
-Memoization Result: max=12, cuts=[1, 2, 2], number_of_cuts=2
-Tabulation Result: max=12, cuts=[2, 2, 1], number_of_cuts=2
+Rod Length: 5
+Prices: [2, 5, 7, 8, 10]
 
-## Submission
+Memoization Result:
+Maximum Profit: 12
+Cuts: [1, 2, 2]
+Number of Cuts: 2
 
+Tabulation Result:
+Maximum Profit: 12
+Cuts: [2, 2, 1]
+Number of Cuts: 2
+
+Test passed successfully!
+
+Test: Optimal to not cut
+Rod Length: 3
+Prices: [1, 3, 8]
+
+Memoization Result:
+Maximum Profit: 8
+Cuts: [3]
+Number of Cuts: 0
+
+Tabulation Result:
+Maximum Profit: 8
+Cuts: [3]
+Number of Cuts: 0
+
+Test passed successfully!
+
+Test: Even Cuts
+Rod Length: 4
+Prices: [3, 5, 6, 7]
+
+Memoization Result:
+Maximum Profit: 12
+Cuts: [1, 1, 1, 1]
+Number of Cuts: 3
+
+Tabulation Result:
+Maximum Profit: 12
+Cuts: [1, 1, 1, 1]
+Number of Cuts: 3
+
+Test passed successfully!
+Submission
 Create public repository goit-algo2-hw-02.
 
 Push the project files.
@@ -142,20 +211,15 @@ Zip the working files as HW2_FullName.zip (exclude .venv/, __pycache__/, .pytest
 
 Attach the ZIP and the repository link in LMS.
 
-## Notes / Acceptance Criteria Mapping
-
+Acceptance Criteria Checklist
 ✅ Groups models without exceeding constraints (max_volume, max_items).
 
 ✅ Higher priorities are processed first.
 
-✅ Batch time = max job time in the group; total = sum of batch times.
+✅ Batch time = max job time in the group; total time = sum of batch times.
 
 ✅ Handles scenarios: same priority, mixed priorities, exceeding constraints.
 
 ✅ Uses @dataclass for data structures in Task 1.
 
-
-
-```
-
-
+Copiază codul
