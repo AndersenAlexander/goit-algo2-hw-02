@@ -13,7 +13,7 @@ Both tasks match the acceptance criteria from the assignment.
 
 ## Task 1 — 3D Printer Queue (Greedy)
 
-**Function**
+## Function
 
 ```python
 optimize_printing(print_jobs: List[Dict], constraints: Dict) -> Dict
@@ -157,4 +157,5 @@ Attach the ZIP and the repository link in LMS.
 
 
 ```
+
 
