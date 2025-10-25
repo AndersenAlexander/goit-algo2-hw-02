@@ -65,12 +65,12 @@ Time: up to O(n²), Space: O(n).
 ## Functions
 rod_cutting_memo(length: int, prices: List[int]) -> Dict
 rod_cutting_table(length: int, prices: List[int]) -> Dict
-# Both return:
-# {
-#   "max_profit": int,
-#   "cuts": List[int],        # e.g., [2, 2, 1] means pieces 2, 2, 1
-#   "number_of_cuts": int     # len(cuts) - 1
-# }
+ Both return:
+ {
+   "max_profit": int,
+   "cuts": List[int],        # e.g., [2, 2, 1] means pieces 2, 2, 1
+  "number_of_cuts": int     # len(cuts) - 1
+ }
 
 ## Input Rules
 
@@ -225,6 +225,7 @@ Attach the ZIP and the repository link in LMS.
 ✅ Handles scenarios: same priority, mixed priorities, exceeding constraints.
 
 ✅ Uses @dataclass for data structures in Task 1.
+
 
 
 
