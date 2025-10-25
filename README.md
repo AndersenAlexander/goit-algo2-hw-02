@@ -96,14 +96,9 @@ Tabulation: O(n²) time, O(n) space
 ---
 
 ## Project Structure
-goit-algo2-hw-02/
-├─ src/
-│  └─ algorithms_hw2.py         # Task 1 + Task 2 implementations
-├─ tests/
-│  └─ test_hw2.py               # Pytest tests (optional but recommended)
-├─ main.py                      # Demo runner printing expected outputs
-├─ pytest.ini                   # Ensures imports work from src/
-└─ README.md
+
+<img width="757" height="244" alt="Screenshot 2025-10-25 235212" src="https://github.com/user-attachments/assets/7fe1539e-abb0-40d4-b0c9-ee35110fce5d" />
+
 
 ## Setup & Run
 1) Create and activate a virtual environment (recommended)
@@ -225,6 +220,7 @@ Attach the ZIP and the repository link in LMS.
 ✅ Handles scenarios: same priority, mixed priorities, exceeding constraints.
 
 ✅ Uses @dataclass for data structures in Task 1.
+
 
 
 
