@@ -37,15 +37,15 @@ Start each batch with the next unscheduled highest-priority job (ties by id).
 
 Fill the batch with jobs that fit (max_volume, max_items), preferring:
 
-  - ** jobs that do not increase the batch time (max(print_time) in the batch),
+  -  jobs that do not increase the batch time (max(print_time) in the batch),
 
-  - ** then the smallest time increase,
+  -  then the smallest time increase,
 
-  - ** then higher priority (lower number),
+  -  then higher priority (lower number),
 
-  - ** then smaller print_time,
+  -  then smaller print_time,
 
-  - ** then lexicographically smaller id.
+  -  then lexicographically smaller id.
 
 Batch time = max(print_time) in the batch. Total time = sum of batch times.
 
@@ -225,6 +225,7 @@ Attach the ZIP and the repository link in LMS.
 ✅ Handles scenarios: same priority, mixed priorities, exceeding constraints.
 
 ✅ Uses @dataclass for data structures in Task 1.
+
 
 
 
