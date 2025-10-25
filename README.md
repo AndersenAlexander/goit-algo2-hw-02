@@ -25,13 +25,13 @@ constraints = {
   "max_items": 2
 }
 
-Priorities
+## Priorities
 
 1 = highest (Coursework/Theses)
 2 = Lab Work
 3 = Personal Projects
 
-Greedy Batching Strategy
+## Greedy Batching Strategy
 
 Start each batch with the next unscheduled highest-priority job (ties by id).
 
@@ -221,6 +221,7 @@ Acceptance Criteria Checklist
 ✅ Handles scenarios: same priority, mixed priorities, exceeding constraints.
 
 ✅ Uses @dataclass for data structures in Task 1.
+
 
 
 
