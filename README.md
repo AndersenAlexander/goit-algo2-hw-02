@@ -28,7 +28,16 @@ constraints = {
 }
 
 
+
+
+
+
+
+
+
+
 ## Priorities
 - ** 1 = highest (Coursework/Theses)1 = highest (Coursework/Theses) 
 - ** 2 = Lab Work
 - ** 3 = Personal Projects
+
