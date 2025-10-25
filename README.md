@@ -18,7 +18,7 @@ optimize_printing(print_jobs: List[Dict], constraints: Dict) -> Dict
 # Returns: {"print_order": ["M1", "M2", ...], "total_time": int}
 
 
-Inputs
+## Inputs
 print_jobs = [
   {"id": "M1", "volume": 100.0, "priority": 1, "print_time": 120},
   {"id": "M2", "volume": 150.0, "priority": 2, "print_time": 90},
@@ -226,3 +226,4 @@ Acceptance Criteria Checklist
 ✅ Handles scenarios: same priority, mixed priorities, exceeding constraints.
 
 ✅ Uses @dataclass for data structures in Task 1.
+
